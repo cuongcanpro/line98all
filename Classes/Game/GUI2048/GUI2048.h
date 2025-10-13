@@ -136,6 +136,15 @@ private:
     {
         int r0, c0, r1, c1, val;
         bool willMerge = false;
+        MoveOp(int fr, int fc, int tr, int tc, int v, bool m)
+                 {
+            r0 = fr;
+            c0 = fc;
+            r1 = tr;
+            c1 = tc;
+            val = v;
+            willMerge = m;
+        }
     };
     void planMoveLeft(std::vector<MoveOp>& ops, std::array<std::array<int, GRID>, GRID>& next, int& gained);
     void planMoveRight(std::vector<MoveOp>& ops, std::array<std::array<int, GRID>, GRID>& next, int& gained);

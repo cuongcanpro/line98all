@@ -73,7 +73,7 @@ Grid Generator::makePuzzle(Difficulty d)
     cells.reserve(81);
     for (int r = 0; r < 9; ++r)
         for (int c = 0; c < 9; ++c)
-            cells.push_back({r, c});
+            cells.push_back(CellIndex{r, c});
     std::shuffle(cells.begin(), cells.end(), rng());
 
     Grid puzzle  = full;

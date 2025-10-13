@@ -19,11 +19,16 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		3203436A2E9D5590006FB27A /* SudokuGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320343652E9D5590006FB27A /* SudokuGenerator.cpp */; };
+		3203436B2E9D5590006FB27A /* GUIMenuSudoku.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3203435F2E9D5590006FB27A /* GUIMenuSudoku.cpp */; };
+		3203436C2E9D5590006FB27A /* GUISudoku.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320343612E9D5590006FB27A /* GUISudoku.cpp */; };
+		3203436D2E9D5590006FB27A /* SudokuSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320343672E9D5590006FB27A /* SudokuSolver.cpp */; };
+		3203436E2E9D5590006FB27A /* GUI2048.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3203435C2E9D5590006FB27A /* GUI2048.cpp */; };
+		3203436F2E9D5590006FB27A /* SudokuBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320343632E9D5590006FB27A /* SudokuBoard.cpp */; };
 		321E66872E7B0648006C7ADB /* Chest in Resources */ = {isa = PBXBuildFile; fileRef = 321E66782E7B0647006C7ADB /* Chest */; };
 		321E66882E7B0648006C7ADB /* IconGame in Resources */ = {isa = PBXBuildFile; fileRef = 321E66792E7B0647006C7ADB /* IconGame */; };
 		321E66892E7B0648006C7ADB /* Texture in Resources */ = {isa = PBXBuildFile; fileRef = 321E667A2E7B0647006C7ADB /* Texture */; };
 		321E668A2E7B0648006C7ADB /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 321E667B2E7B0647006C7ADB /* sounds */; };
-		321E668B2E7B0648006C7ADB /* Board in Resources */ = {isa = PBXBuildFile; fileRef = 321E667C2E7B0648006C7ADB /* Board */; };
 		321E668C2E7B0648006C7ADB /* particles1 in Resources */ = {isa = PBXBuildFile; fileRef = 321E667D2E7B0648006C7ADB /* particles1 */; };
 		321E668D2E7B0648006C7ADB /* avatarIOS in Resources */ = {isa = PBXBuildFile; fileRef = 321E667E2E7B0648006C7ADB /* avatarIOS */; };
 		321E668E2E7B0648006C7ADB /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 321E667F2E7B0648006C7ADB /* fonts */; };
@@ -335,11 +340,23 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		3203435B2E9D5590006FB27A /* GUI2048.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUI2048.h; sourceTree = "<group>"; };
+		3203435C2E9D5590006FB27A /* GUI2048.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GUI2048.cpp; sourceTree = "<group>"; };
+		3203435E2E9D5590006FB27A /* GUIMenuSudoku.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUIMenuSudoku.h; sourceTree = "<group>"; };
+		3203435F2E9D5590006FB27A /* GUIMenuSudoku.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GUIMenuSudoku.cpp; sourceTree = "<group>"; };
+		320343602E9D5590006FB27A /* GUISudoku.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUISudoku.h; sourceTree = "<group>"; };
+		320343612E9D5590006FB27A /* GUISudoku.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GUISudoku.cpp; sourceTree = "<group>"; };
+		320343622E9D5590006FB27A /* SudokuBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuBoard.h; sourceTree = "<group>"; };
+		320343632E9D5590006FB27A /* SudokuBoard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SudokuBoard.cpp; sourceTree = "<group>"; };
+		320343642E9D5590006FB27A /* SudokuGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuGenerator.h; sourceTree = "<group>"; };
+		320343652E9D5590006FB27A /* SudokuGenerator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SudokuGenerator.cpp; sourceTree = "<group>"; };
+		320343662E9D5590006FB27A /* SudokuSolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuSolver.h; sourceTree = "<group>"; };
+		320343672E9D5590006FB27A /* SudokuSolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SudokuSolver.cpp; sourceTree = "<group>"; };
+		320343682E9D5590006FB27A /* SudokuTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuTypes.h; sourceTree = "<group>"; };
 		321E66782E7B0647006C7ADB /* Chest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chest; sourceTree = "<group>"; };
 		321E66792E7B0647006C7ADB /* IconGame */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IconGame; sourceTree = "<group>"; };
 		321E667A2E7B0647006C7ADB /* Texture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Texture; sourceTree = "<group>"; };
 		321E667B2E7B0647006C7ADB /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
-		321E667C2E7B0648006C7ADB /* Board */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Board; sourceTree = "<group>"; };
 		321E667D2E7B0648006C7ADB /* particles1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = particles1; sourceTree = "<group>"; };
 		321E667E2E7B0648006C7ADB /* avatarIOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = avatarIOS; sourceTree = "<group>"; };
 		321E667F2E7B0648006C7ADB /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -955,6 +972,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3203435D2E9D5590006FB27A /* GUI2048 */ = {
+			isa = PBXGroup;
+			children = (
+				3203435B2E9D5590006FB27A /* GUI2048.h */,
+				3203435C2E9D5590006FB27A /* GUI2048.cpp */,
+			);
+			path = GUI2048;
+			sourceTree = "<group>";
+		};
+		320343692E9D5590006FB27A /* GUISudoku */ = {
+			isa = PBXGroup;
+			children = (
+				3203435E2E9D5590006FB27A /* GUIMenuSudoku.h */,
+				3203435F2E9D5590006FB27A /* GUIMenuSudoku.cpp */,
+				320343602E9D5590006FB27A /* GUISudoku.h */,
+				320343612E9D5590006FB27A /* GUISudoku.cpp */,
+				320343622E9D5590006FB27A /* SudokuBoard.h */,
+				320343632E9D5590006FB27A /* SudokuBoard.cpp */,
+				320343642E9D5590006FB27A /* SudokuGenerator.h */,
+				320343652E9D5590006FB27A /* SudokuGenerator.cpp */,
+				320343662E9D5590006FB27A /* SudokuSolver.h */,
+				320343672E9D5590006FB27A /* SudokuSolver.cpp */,
+				320343682E9D5590006FB27A /* SudokuTypes.h */,
+			);
+			path = GUISudoku;
+			sourceTree = "<group>";
+		};
 		32614DC92DCF532200B9A25E /* LogicPikachu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,7 +1086,6 @@
 				321E66B32E7B0682006C7ADB /* version.txt */,
 				321E66812E7B0648006C7ADB /* 480_800 */,
 				321E667E2E7B0648006C7ADB /* avatarIOS */,
-				321E667C2E7B0648006C7ADB /* Board */,
 				321E66782E7B0647006C7ADB /* Chest */,
 				321E66822E7B0648006C7ADB /* common */,
 				321E66862E7B0648006C7ADB /* effect */,
@@ -1181,6 +1224,8 @@
 		5254772229D52EEA00AA5FE2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				3203435D2E9D5590006FB27A /* GUI2048 */,
+				320343692E9D5590006FB27A /* GUISudoku */,
 				32F4F39A2DF8672400EDAD22 /* GUIBrick */,
 				32614DC92DCF532200B9A25E /* LogicPikachu */,
 				526F03062C60DD1F0014D469 /* Ai */,
@@ -1843,7 +1888,6 @@
 				321E66CF2E7B0682006C7ADB /* Homing_Laser01.efk in Resources */,
 				321E66D02E7B0682006C7ADB /* config.csv in Resources */,
 				321E66D12E7B0682006C7ADB /* iconLineOld.png in Resources */,
-				321E668B2E7B0648006C7ADB /* Board in Resources */,
 				321E668C2E7B0648006C7ADB /* particles1 in Resources */,
 				321E668D2E7B0648006C7ADB /* avatarIOS in Resources */,
 				321E668E2E7B0648006C7ADB /* fonts in Resources */,
@@ -1899,6 +1943,12 @@
 				526F02B32C60DCE00014D469 /* BallAnimation.cpp in Sources */,
 				527754462A3F326A001DF9A1 /* LevelData.cpp in Sources */,
 				526F02EC2C60DD050014D469 /* Cell.cpp in Sources */,
+				3203436A2E9D5590006FB27A /* SudokuGenerator.cpp in Sources */,
+				3203436B2E9D5590006FB27A /* GUIMenuSudoku.cpp in Sources */,
+				3203436C2E9D5590006FB27A /* GUISudoku.cpp in Sources */,
+				3203436D2E9D5590006FB27A /* SudokuSolver.cpp in Sources */,
+				3203436E2E9D5590006FB27A /* GUI2048.cpp in Sources */,
+				3203436F2E9D5590006FB27A /* SudokuBoard.cpp in Sources */,
 				525477CC29D52EEB00AA5FE2 /* LocalizedString.cpp in Sources */,
 				526F02BF2C60DCE00014D469 /* GUILine.cpp in Sources */,
 				529936E42B14C57900EA7055 /* BoardDataPop.cpp in Sources */,

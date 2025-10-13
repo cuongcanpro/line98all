@@ -9,6 +9,10 @@ using Grid             = std::array<std::array<int, SUDOKU_N>, SUDOKU_N>;  // 0 
 struct CellIndex
 {
     int r = 0, c = 0;
+    CellIndex(int fr, int fc) {
+        r = fr;
+        c = fc;
+    }
 };  // row, col [0..8]
 
 struct Move

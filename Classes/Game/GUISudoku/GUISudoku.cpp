@@ -1263,18 +1263,18 @@ void GUISudoku::onFinishGame() {
     ud->flush();
     int cur = (int)elapsedSeconds_;
     // Winning flow: sparkle yellow across filled cells, then show result (time)
-    runWinSparkleThenResult([this, cur]() {
-        game->showAdsFull();
-        GUIManager::getInstance().guiResult.showGUI(cur, bestSeconds_, true);
-    });
+//    runWinSparkleThenResult([this, cur]() {
+//        game->showAdsFull();
+//        GUIManager::getInstance().guiResult.showGUI(cur, bestSeconds_, true);
+//    });
     GameSound::playLevelUp();
 }
 
 void GUISudoku::runFinishGrayOut(const std::function<void()>& onComplete)
 {
+    /*
     // Collect positions of number labels that are currently visible
-    std::vector<std::pair<int,int>> cells;
-    cells.reserve(81);
+	    cells.reserve(81);
     for (int r = 0; r < 9; ++r)
     {
         for (int c = 0; c < 9; ++c)
@@ -1293,7 +1293,7 @@ void GUISudoku::runFinishGrayOut(const std::function<void()>& onComplete)
     }
 
     // Animate in reading order from top-left to bottom-right
-    std::sort(cells.begin(), cells.end(), [](const auto& a, const auto& b) {
+    std::sort(cells.begin(), cells.end(), [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
         // Visual top row is r=8
         if (a.first != b.first) return a.first > b.first;
         return a.second < b.second;
@@ -1395,7 +1395,8 @@ void GUISudoku::runWinSparkleThenResult(const std::function<void()>& onComplete)
         );
         if (lbl) lbl->runAction(seq);
     }
-
+*/
+    float lastDelay = 2.0;
     runAction(Sequence::create(
         DelayTime::create(lastDelay + 0.2f),
         CallFunc::create([onComplete]() { if (onComplete) onComplete(); }),

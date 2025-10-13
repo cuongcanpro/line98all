@@ -219,7 +219,10 @@ void GUI2048::buildGrid()
             label->setColor(Color3B::WHITE);
             cellNode->addChild(label, 1);
 
-            _visuals[r][c] = {cellNode, bg, label};
+         //   _visuals[r][c] = {cellNode, bg, label};
+            _visuals[r][c].container = cellNode;
+            _visuals[r][c].bg = bg;
+            _visuals[r][c].label = label;
         }
     }
 
@@ -477,7 +480,10 @@ void GUI2048::planMoveLeft(std::vector<MoveOp>& ops, std::array<std::array<int, 
                         break;
                     }
             }
-            ops.push_back({r, c, r, dst, v, willMerge});
+           // MoveOp op(r, c, r, dst, v, willMerge);
+            
+            ops.push_back(MoveOp{r, c, r, dst, v, willMerge});
+           // ops.push_back(op);
             dst++;
         }
         // ghi next row = line
