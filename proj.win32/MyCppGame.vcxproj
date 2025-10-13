@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
+    <RootNamespace>test_win32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);..\Classes\dragonbones</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <CustomBuildStep>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
+      </Command>
+      <Outputs>$(TargetName).cab</Outputs>
+      <Inputs>$(TargetFileName)</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\animation\Animation.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\animation\AnimationState.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\animation\TimelineState.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\animation\WorldClock.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\core\Armature.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\core\Bone.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\core\Object.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\core\Slot.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\events\EventData.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\factories\BaseFactory.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\parsers\BaseDataParser.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\parsers\ConstValues.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\parsers\dbtinyxml2.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\parsers\XMLDataParser.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCArmature.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCArmatureNode.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCFactory.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCHelper.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCLuaUtils.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCSlot.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\DBCCSprite.cpp" />
+    <ClCompile Include="..\Classes\dragonBones\renderer\PlistDataParser.cpp" />
+    <ClCompile Include="..\Classes\Effekseer\Effekseer.cpp" />
+    <ClCompile Include="..\Classes\Effekseer\EffekseerNative.cpp" />
+    <ClCompile Include="..\Classes\Effekseer\EffekseerRendererNative.cpp" />
+    <ClCompile Include="..\Classes\Engine\Engine.cpp" />
+    <ClCompile Include="..\Classes\Engine\GlobalVar.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\AsyncDownloader.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\BaseBehavior.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\BaseButton.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\BaseGUI.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\BubbleBehavior.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\CScaleSprite.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\GameImage.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\GUIMgr.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\ImageEffect.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\LabelBM.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\Paper.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\ParticleEffect.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\StarFly.cpp" />
+    <ClCompile Include="..\Classes\Engine\GUI\UIAvatar.cpp" />
+    <ClCompile Include="..\Classes\Engine\Layers\GameLayer.cpp" />
+    <ClCompile Include="..\Classes\Engine\Layers\LayerMgr.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\CDialog.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\CStringUtils.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\GameConfig.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\LocalizedString.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\ScreenUtils.cpp" />
+    <ClCompile Include="..\Classes\Engine\Utility\Utility.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\ChatModel.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\ConfigModel.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\ExpModel.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\GlobalData.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\PlayerInfo.cpp" />
+    <ClCompile Include="..\Classes\Game\Data\RoomModel.cpp" />
+    <ClCompile Include="..\Classes\Game\GameClient.cpp" />
+    <ClCompile Include="..\Classes\Game\GUI2048\GUI2048.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBlock\CellBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBlock\GUIGame.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBlock\GUIHelpBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\BaseGame.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Die.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\GUIBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisBaseEntity.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisBrickData.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisColumnBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisLayer.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisLLeftBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisLRightBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisSquare.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisTBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisZLeftBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBrick\Tetris\TetrisZRightBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBubble\Bubble.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBubble\BubbleText.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIBubble\GUIBubble.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\Arrow.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\Ball.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\Bird.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\BonusEffect.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\GroupScoreEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\Entity\RowBall.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\GUIChoose.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\GUIEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\GUILevelEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIEgg\TableListPostureEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIManager.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\GUIMenuSudoku.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\GUISudoku.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\SudokuBoard.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\SudokuGenerator.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\SudokuSolver.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\CellBomb.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\BallAnimation.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\BallAnimationNew.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\BlockItem.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\BoardPop.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\BombEffect.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\ClockCountDownLine.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\GroupCenter.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\GroupNewNumber.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\GroupNewNumberPop.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\MiniBoard.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\ObjectNumber.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\ObjectNumberPop.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\Entity\ScoreGroup.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GroupBombHelp.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIBomb.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIChangeNameEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIDialog.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIHelp.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUILanguage.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUILine.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUILoadingAds.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUILoadingGame.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIMenuBomb.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIMerge.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIMinigames.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIPikachu.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIPop.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIResult.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUISave.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUISetting.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUITopEgg.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\GUIWaiting.cpp" />
+    <ClCompile Include="..\Classes\Game\GUIs\TopCell.cpp" />
+    <ClCompile Include="..\Classes\Game\GUITwenty\Entity\GroupNumber.cpp" />
+    <ClCompile Include="..\Classes\Game\GUITwenty\Entity\Number.cpp" />
+    <ClCompile Include="..\Classes\Game\GUITwenty\GUIGameTwenty.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\BaseEntity.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\BigLBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\BigSquareBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\ConfigData.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\FiveRowBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\FourColumnBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\LBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\LSortBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\OneBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\SquareBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\TBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\ThreeRowBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBlock\TwoColumnBrick.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBubble\BoardDataBubble.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicBubble\ResultData.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicPikachu\BoardDataPikachu.cpp" />
+    <ClCompile Include="..\Classes\Game\LogicPikachu\WayPikachu.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\BoardData.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\BoardDataBomb.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\BoardDataPop.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\Cell.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\LevelData.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\Logic.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\MaxPoint.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\PointGame.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\TutorialData.cpp" />
+    <ClCompile Include="..\Classes\Game\Logic\Way.cpp" />
+    <ClCompile Include="..\Classes\Game\NetworkGame\HttpRequestHandler.cpp" />
+    <ClCompile Include="..\Classes\Game\Utility\GameSound.cpp" />
+    <ClCompile Include="..\Classes\Game\Utility\GameUtility.cpp" />
+    <ClCompile Include="..\Classes\Game\Utility\JNIUtils.cpp" />
+    <ClCompile Include="..\Classes\Game\Utility\Toast.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\MainScene.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\dragonBones\animation\Animation.h" />
+    <ClInclude Include="..\Classes\dragonBones\animation\AnimationState.h" />
+    <ClInclude Include="..\Classes\dragonBones\animation\IAnimatable.h" />
+    <ClInclude Include="..\Classes\dragonBones\animation\TimelineState.h" />
+    <ClInclude Include="..\Classes\dragonBones\animation\WorldClock.h" />
+    <ClInclude Include="..\Classes\dragonBones\core\Armature.h" />
+    <ClInclude Include="..\Classes\dragonBones\core\Bone.h" />
+    <ClInclude Include="..\Classes\dragonBones\core\Object.h" />
+    <ClInclude Include="..\Classes\dragonBones\core\Slot.h" />
+    <ClInclude Include="..\Classes\dragonBones\DragonBones.h" />
+    <ClInclude Include="..\Classes\dragonBones\DragonBonesHeaders.h" />
+    <ClInclude Include="..\Classes\dragonBones\events\EventData.h" />
+    <ClInclude Include="..\Classes\dragonBones\events\IEventDispatcher.h" />
+    <ClInclude Include="..\Classes\dragonBones\factories\BaseFactory.h" />
+    <ClInclude Include="..\Classes\dragonBones\geoms\ColorTransform.h" />
+    <ClInclude Include="..\Classes\dragonBones\geoms\Matrix.h" />
+    <ClInclude Include="..\Classes\dragonBones\geoms\Point.h" />
+    <ClInclude Include="..\Classes\dragonBones\geoms\Rectangle.h" />
+    <ClInclude Include="..\Classes\dragonBones\geoms\Transform.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\AnimationData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\ArmatureData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\BoneData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\DisplayData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\DragonBonesData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\EllipseData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\Frame.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\IAreaData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\RectangleData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\SkinData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\SlotData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\TextData.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\Timeline.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\TransformFrame.h" />
+    <ClInclude Include="..\Classes\dragonBones\objects\TransformTimeline.h" />
+    <ClInclude Include="..\Classes\dragonBones\parsers\BaseDataParser.h" />
+    <ClInclude Include="..\Classes\dragonBones\parsers\ConstValues.h" />
+    <ClInclude Include="..\Classes\dragonBones\parsers\dbtinyxml2.h" />
+    <ClInclude Include="..\Classes\dragonBones\parsers\XMLDataParser.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCArmature.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCArmatureNode.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCEventDispatcher.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCFactory.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCHelper.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCLuaUtils.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\dbccMacro.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCRenderHeaders.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCSlot.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCSprite.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\DBCCTextureAtlas.h" />
+    <ClInclude Include="..\Classes\dragonBones\renderer\PlistDataParser.h" />
+    <ClInclude Include="..\Classes\dragonBones\textures\ITextureAtlas.h" />
+    <ClInclude Include="..\Classes\dragonBones\textures\TextureAtlasData.h" />
+    <ClInclude Include="..\Classes\dragonBones\textures\TextureData.h" />
+    <ClInclude Include="..\Classes\Effekseer\Effekseer.h" />
+    <ClInclude Include="..\Classes\Effekseer\EffekseerNative.h" />
+    <ClInclude Include="..\Classes\Effekseer\EffekseerRendererNative.h" />
+    <ClInclude Include="..\Classes\Engine\Engine.h" />
+    <ClInclude Include="..\Classes\Engine\GlobalVar.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\AsyncDownloader.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\BaseBehavior.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\BaseButton.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\BaseGUI.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\BubbleBehavior.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\CScaleSprite.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\GameImage.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\GUIMgr.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\ImageEffect.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\LabelBM.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\Paper.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\ParticleEffect.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\StarFly.h" />
+    <ClInclude Include="..\Classes\Engine\GUI\UIAvatar.h" />
+    <ClInclude Include="..\Classes\Engine\Layers\GameLayer.h" />
+    <ClInclude Include="..\Classes\Engine\Layers\LayerMgr.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\CDialog.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\CStringUtils.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\GameConfig.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\HttpUtils.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\LocalizedString.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\ScreenUtils.h" />
+    <ClInclude Include="..\Classes\Engine\Utility\Utility.h" />
+    <ClInclude Include="..\Classes\Game\Data\ChatModel.h" />
+    <ClInclude Include="..\Classes\Game\Data\ConfigModel.h" />
+    <ClInclude Include="..\Classes\Game\Data\ExpModel.h" />
+    <ClInclude Include="..\Classes\Game\Data\GlobalData.h" />
+    <ClInclude Include="..\Classes\Game\Data\PlayerInfo.h" />
+    <ClInclude Include="..\Classes\Game\Data\RoomModel.h" />
+    <ClInclude Include="..\Classes\Game\GameClient.h" />
+    <ClInclude Include="..\Classes\Game\GUI2048\GUI2048.h" />
+    <ClInclude Include="..\Classes\Game\GUIBlock\CellBlock.h" />
+    <ClInclude Include="..\Classes\Game\GUIBlock\GUIGame.h" />
+    <ClInclude Include="..\Classes\Game\GUIBlock\GUIHelpBlock.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\BaseGame.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Die.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\GUIBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisBaseEntity.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisBrickData.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisColumnBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisLayer.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisLLeftBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisLRightBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisSquare.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisTBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisZLeftBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBrick\Tetris\TetrisZRightBrick.h" />
+    <ClInclude Include="..\Classes\Game\GUIBubble\Bubble.h" />
+    <ClInclude Include="..\Classes\Game\GUIBubble\BubbleText.h" />
+    <ClInclude Include="..\Classes\Game\GUIBubble\GUIBubble.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\Arrow.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\Ball.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\Bird.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\BonusEffect.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\GroupScoreEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\Entity\RowBall.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\GUIChoose.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\GUIEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\GUILevelEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIEgg\TableListPostureEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIManager.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\GUIMenuSudoku.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\GUISudoku.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\SudokuBoard.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\SudokuGenerator.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\SudokuSolver.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\SudokuTypes.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\CellBomb.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\BallAnimation.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\BallAnimationNew.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\BlockItem.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\BoardPop.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\BombEffect.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\ClockCountDownLine.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\GroupCenter.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\GroupNewNumber.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\GroupNewNumberPop.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\MiniBoard.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\ObjectNumber.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\ObjectNumberPop.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\Entity\ScoreGroup.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GroupBombHelp.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIBomb.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIChangeNameEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIDialog.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIHelp.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUILanguage.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUILine.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUILoadingAds.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUILoadingGame.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIMenuBomb.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIMerge.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIMinigames.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIPikachu.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIPop.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIResult.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUISave.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUISetting.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUITopEgg.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\GUIWaiting.h" />
+    <ClInclude Include="..\Classes\Game\GUIs\TopCell.h" />
+    <ClInclude Include="..\Classes\Game\GUITwenty\Entity\GroupNumber.h" />
+    <ClInclude Include="..\Classes\Game\GUITwenty\Entity\Number.h" />
+    <ClInclude Include="..\Classes\Game\GUITwenty\GUIGameTwenty.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\BaseEntity.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\BigLBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\BigSquareBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\ConfigData.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\FiveRowBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\FourColumnBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\LBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\LSortBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\OneBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\SquareBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\TBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\ThreeRowBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBlock\TwoColumnBrick.h" />
+    <ClInclude Include="..\Classes\Game\LogicBubble\BoardDataBubble.h" />
+    <ClInclude Include="..\Classes\Game\LogicBubble\ResultData.h" />
+    <ClInclude Include="..\Classes\Game\LogicPikachu\BoardDataPikachu.h" />
+    <ClInclude Include="..\Classes\Game\LogicPikachu\WayPikachu.h" />
+    <ClInclude Include="..\Classes\Game\Logic\BoardData.h" />
+    <ClInclude Include="..\Classes\Game\Logic\BoardDataBomb.h" />
+    <ClInclude Include="..\Classes\Game\Logic\BoardDataPop.h" />
+    <ClInclude Include="..\Classes\Game\Logic\Cell.h" />
+    <ClInclude Include="..\Classes\Game\Logic\CellState.h" />
+    <ClInclude Include="..\Classes\Game\Logic\EnemyInfo.h" />
+    <ClInclude Include="..\Classes\Game\Logic\GameTypeData.h" />
+    <ClInclude Include="..\Classes\Game\Logic\LevelData.h" />
+    <ClInclude Include="..\Classes\Game\Logic\Logic.h" />
+    <ClInclude Include="..\Classes\Game\Logic\MaxPoint.h" />
+    <ClInclude Include="..\Classes\Game\Logic\PointGame.h" />
+    <ClInclude Include="..\Classes\Game\Logic\TableInfo.h" />
+    <ClInclude Include="..\Classes\Game\Logic\TopInfo.h" />
+    <ClInclude Include="..\Classes\Game\Logic\TutorialData.h" />
+    <ClInclude Include="..\Classes\Game\Logic\User.h" />
+    <ClInclude Include="..\Classes\Game\Logic\Way.h" />
+    <ClInclude Include="..\Classes\Game\NetworkGame\HttpRequestHandler.h" />
+    <ClInclude Include="..\Classes\Game\Utility\GameConst.h" />
+    <ClInclude Include="..\Classes\Game\Utility\GameSound.h" />
+    <ClInclude Include="..\Classes\Game\Utility\GameUtility.h" />
+    <ClInclude Include="..\Classes\Game\Utility\JNIUtils.h" />
+    <ClInclude Include="..\Classes\Game\Utility\SoundResources.h" />
+    <ClInclude Include="..\Classes\Game\Utility\Toast.h" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\MainScene.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cocos2d\cocos\2d\libcocos2d.vcxproj">
+      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\editor-support\spine\proj.win32\libSpine.vcxproj">
+      <Project>{b7c2a162-dec9-4418-972e-240ab3cbfcae}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

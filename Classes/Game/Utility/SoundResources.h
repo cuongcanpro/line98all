@@ -1,0 +1,43 @@
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+
+#define SOUND_CLICK "sounds/mobile/ButtonClick.mp3"
+#define SOUND_CHOOSE_BALL "sounds/mobile/jump.mp3"
+#define SOUND_FAIL "sounds/mobile/bom1.mp3"
+#define SOUND_LOSE "sounds/mobile/Lose.mp3"
+#define SOUND_MOVE "sounds/mobile/jumpBonus.mp3"
+#define SOUND_SCORE1 "sounds/mobile/matchwf_sfx_scorebin_2.mp3"
+#define SOUND_SCORE2 "sounds/mobile/matchwf_sfx_scorebin_3.mp3"
+#define SOUND_SCORE3 "sounds/mobile/matchwf_sfx_scorebin_4.mp3"
+#define SOUND_SCORE4 "sounds/mobile/matchwf_sfx_scorebin_5.mp3"
+#define SOUND_SCORE5 "sounds/mobile/matchwf_sfx_scorebin_6.mp3"
+#define SOUND_SCORE6 "sounds/mobile/matchwf_sfx_scorebin_6.mp3"
+#define SOUND_WIN "sounds/mobile/Win.mp3"
+#define SOUND_TIME "sounds/mobile/TimeCountDown.mp3"
+#define SOUND_LEVEL_UP "sounds/mobile/levelUp.mp3"
+#define SOUND_BOMB "sounds/mobile/bomb.mp3"
+#define SOUND_START "sounds/mobile/start.mp3"
+#define SOUND_COUNT_DOWN "sounds/mobile/TimeCountDown.mp3"
+#define SOUND_OTHER_SCORE "sounds/mobile/otherScore.mp3"
+#define SOUND_PLAYER_JOIN "sounds/mobile/playerJoin.mp3"
+#define SOUND_PLAYER_OUT "sounds/mobile/playerOut.mp3"
+#define SOUND_THUNDER "sounds/mobile/thunder.mp3"
+
+#define SOUND_EGG_BREAK "sounds/mobile/BreakEgg.mp3"
+#define SOUND_EGG_LAND "sounds/mobile/EggLands.mp3"
+#define SOUND_WARN "sounds/mobile/Warn.mp3"
+#define SOUND_WHIRLEY_HIT "sounds/mobile/WhirleyHit.mp3"
+#define SOUND_WHIRLEY_SIREN "sounds/mobile/whirleysiren.mp3"
+#define SOUND_MAMA "sounds/mobile/Mama.mp3"
+
+#define UP_NUMBER "sounds/mobile/upNumber.mp3"
+#define NEW_NUMBER "sounds/mobile/newNumber.mp3"
+#define LEVEL_UP "sounds/mobile/levelUp.mp3"
+#define SOUND_EAT "sounds/mobile/eat.mp3"
+#define SOUND_HIT "sounds/mobile/hit.mp3"
+#define SOUND_FIREWORK "sounds/mobile/fireworks.mp3"
+
+#define SOUND_BOMB_GUESS "sounds/mobile/bombGuess.mp3"
+#define SOUND_BOMB_UN_GUESS "sounds/mobile/bombUnguess.mp3"
+#define SOUND_OPEN_CELL "sounds/mobile/openCell.mp3"
+#endif
+

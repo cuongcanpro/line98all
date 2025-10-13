@@ -1,0 +1,9 @@
+<SmartFoxConfig>
+	<!--<ip>chess.beansofts.com</ip>
+    <port>9933</port>-->
+    <ip>ws.proxy.beansofts.com</ip>
+    <port>9933</port>
+	<zone>Chess</zone>
+	<httpPort>8080</httpPort>
+	<httpPollSpeed>750</httpPollSpeed>
+</SmartFoxConfig>

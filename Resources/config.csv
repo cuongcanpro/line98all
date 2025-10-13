@@ -1,0 +1,3 @@
+serverIp,serverPort,clientVersion,storeType,encryptImage,encryptCommon
+String,int,int,int,int,int
+120.138.76.40,8080,1,1,0,0

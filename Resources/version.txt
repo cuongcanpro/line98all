@@ -1,0 +1,1 @@
+{"android":{"portal":{"ver":2},"tala":{"ver":2},"tienlen":{"ver":2},"pokerhk":{"ver":2},"pokerus":{"ver":2},"caro":{"ver":2},"cotuong":{"ver":2},"idStore":"google"}}

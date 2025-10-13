@@ -1,0 +1,13 @@
+/cocos2d
+/cocos2d1
+/proj.android/app/release
+/proj.android/app/.externalNativeBuild
+/proj.android/app/build
+/proj.win32/MyCppGame.VC.db
+/proj.win32/.vs
+/proj.win32/Debug.win32
+proj.ios_mac/lib
+proj.ios_mac/libAdmob
+proj.ios_mac/pods
+proj.ios_macOld
+/proj.android/.idea
