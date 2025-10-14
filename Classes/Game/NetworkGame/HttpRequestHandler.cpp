@@ -49,7 +49,7 @@ void httpConnectGame()
 
     
         GUIManager::getInstance().removeAllGui();
-        GUIManager::getInstance().showGui(&GUIManager::getInstance().guiChoose);
+        GUIManager::getInstance().showGui(&GUIManager::getInstance().guiMinigames);
     
 	
 #endif
@@ -190,24 +190,17 @@ void HttpRequestHandler::onCompleteGetVersion(cocos2d::network::HttpClient *clie
 	CStringUtils::replaceAll(updateMessage, "#", "\n");
 	
 	if (updateGame != 0) {
-		if (game->countUpdate != 0) {
 			//CCUserDefault::sharedUserDefault()->setIntegerForKey("countUpdate", 0);
 			//CCUserDefault::sharedUserDefault()->flush();
-			if (updateGame == 1)
-			{
-				GUIManager::getInstance().guiDialog.showGUI(updateMessage.c_str(), httpUpdateGame, true);
-				return;
-			}
-			else if (updateGame == 2)
-			{
-				GUIManager::getInstance().guiDialog.showGUI(updateMessage.c_str(), httpUpdateGame, false, httpConnectGame);
-				return;
-			}
+		if (updateGame == 1)
+		{
+			GUIManager::getInstance().guiDialog.showGUI(updateMessage.c_str(), httpUpdateGame, true);
+			return;
 		}
-		else {
-			CCUserDefault::sharedUserDefault()->setIntegerForKey("countUpdate", 1);
-			GUIManager::getInstance().removeAllGui();
-			GUIManager::getInstance().showGui(&GUIManager::getInstance().guiMinigames);
+		else if (updateGame == 2)
+		{
+			GUIManager::getInstance().guiDialog.showGUI(updateMessage.c_str(), httpUpdateGame, false, httpConnectGame);
+			return;
 		}
 	}
 	else {

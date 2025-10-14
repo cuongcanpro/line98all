@@ -71,7 +71,7 @@ void GUILoadingGame::callbackCompleteEndGame()
 void GUILoadingGame::callBackSplash()
 {
 	CCSize size = Director::getInstance()->getOpenGLView()->getVisibleSize();
-    GameImage* background = addImage("egg/jungleback.jpg");
+    GameImage* background = addImage("background.jpg");
     background->setWidth(size.width);
     background->setHeight(size.height);
     background->setPos(size.width / 2, size.height / 2);
@@ -98,7 +98,7 @@ void GUILoadingGame::callBackSplash()
 		});*/
 	}
 	
-	Sprite* iconBall = Sprite::create("480_800/iconEggShoot.png");
+	Sprite* iconBall = Sprite::create("480_800/logoGame.png");
 	addChild(iconBall);
     iconBall->setPosition(Vec2(size.width * 0.5, size.height));
 //	background->setWidth(size.width);
