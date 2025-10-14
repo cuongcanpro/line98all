@@ -164,9 +164,9 @@ void GameClient::loadPreferences() {
 //	CCLOG("LOAD PREFERENCE ");
 	idAdsBanner = CCUserDefault::sharedUserDefault()->getIntegerForKey("idAdsBanner", 1);
     idAdsFull = CCUserDefault::sharedUserDefault()->getIntegerForKey("idAdsFull", 1);
-    adBannerUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adBannerUnit", "ca-app-pub-7169368956692170/3149624783");
-    adInterUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adInterUnit", "ca-app-pub-7169368956692170/1109784804");
-    adRewardUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adRewardUnit", "ca-app-pub-7169368956692170/1262201113");
+    adBannerUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adBannerUnit", "ca-app-pub-7169368956692170/5524463808");
+    adInterUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adInterUnit", "ca-app-pub-7169368956692170/5053690514");
+    adRewardUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adRewardUnit", "ca-app-pub-7169368956692170/4213212447");
 //	idAdsBanner = 1;
 	//idAdsFull = idAdsBanner;
 	saveScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("saveScore", 0);
@@ -506,17 +506,9 @@ void GameClient::initGame()
     
     string s ;
 
-        //game block puzzel
-        if (isIOS())
-            s = "https://news.beansofts.com/?a=90&v=5&p=1";
-
-        // game boardgame
-        if (isIOS())
-            s = "https://news.beansofts.com/?a=711&v=1&p=1";
-
 		// game egg
 		if (isIOS())
-			s = "https://news.beansofts.com/?a=70&v=7&p=1";
+			s = "https://news.beansofts.com/?a=722&v=1&p=1";
 
         GameUtility::callHttpRequest(s.c_str(), httpresponse_selector(HttpRequestHandler::onCompleteGetVersion), handler);
 	
@@ -677,6 +669,9 @@ void GameClient::onReward(int num)
 		return;
 	}
 	if (num > 0) {
+        if (GUIManager::getInstance().guiSudoku.isInitted() && GUIManager::getInstance().guiSudoku.isVisible()) {
+            GUIManager::getInstance().guiSudoku.onHint();
+        }
 	}
 	else {
 		game->countNotFinishAds++;

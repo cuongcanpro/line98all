@@ -729,7 +729,7 @@ void GUISudoku::onButtonRelease(int buttonID, Touch* touch)
     else if (buttonID == BTN_HINT_ID)
     {
         
-        #if (AX_TARGET_PLATFORM == AX_PLATFORM_WIN32)
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
             onHint();
         #else
             GUIManager::getInstance().guiDialog.showGUI(

@@ -136,7 +136,7 @@ void GUIMinigames::callBackSplash()
 	btnBlock->setPosition(size.width * 0.5, btnBack->getPositionY() - btnBlock->getHeight() * 0.5 - btnBack->getHeight() * 0.5);
 	//btnBlock->setVisible(false);
 
-	float padY = 200;
+	float padY = 180;
 	float heightBg = btnBlock->getPositionY() - btnBlock->getHeight() * 0.6 - size.height * 0.15;
     game->extendGame = false;
 	

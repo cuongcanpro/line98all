@@ -2137,7 +2137,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 1.22;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9AV797NC7D;
 				ENABLE_BITCODE = NO;
@@ -2154,7 +2154,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Block Puzzel";
+				INFOPLIST_KEY_CFBundleDisplayName = "Line98 All";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2166,14 +2166,14 @@
 					/usr/lib/swift,
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				MARKETING_VERSION = 39;
+				MARKETING_VERSION = 1;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.eggShoot2017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line9pro;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;
@@ -2206,7 +2206,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 1.22;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9AV797NC7D;
 				ENABLE_BITCODE = NO;
@@ -2222,7 +2222,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Block Puzzel";
+				INFOPLIST_KEY_CFBundleDisplayName = "Line98 All";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2234,14 +2234,14 @@
 					/usr/lib/swift,
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
 				);
-				MARKETING_VERSION = 39;
+				MARKETING_VERSION = 1;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.eggShoot2017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line9pro;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;

@@ -46,12 +46,8 @@ void GUIEgg::onBackKey(){
 	if (GUIManager::getInstance().isCallBackPress == false && GUIManager::getInstance().getLastGui() == this)
 	{
 		GUIManager::getInstance().removeAllGui();
-		if (gameType == STOMP) {
-			GUIManager::getInstance().showGui(&GUIManager::getInstance().guiLevelEgg);
-			JNIUtils::showAdsBanner(1);
-		}
-		else
-			GUIManager::getInstance().showGui(&GUIManager::getInstance().guiChoose);
+	
+			GUIManager::getInstance().showGui(&GUIManager::getInstance().guiMinigames);
 		GUIManager::getInstance().isCallBackPress = true;
 	}
 }
