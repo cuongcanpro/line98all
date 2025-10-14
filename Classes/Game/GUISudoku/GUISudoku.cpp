@@ -64,7 +64,7 @@ void GUISudoku::initGUI()
         btnSound->normalImage->setImage("btnSoundOff.png");
     }
 
-    btnSetting = addButton(BTN_SETTING_ID, "btnSoundOff.png");
+    btnSetting = addButton(BTN_SETTING_ID, "btnSetting.png");
     btnSetting->setPosition(btnSound->getPositionX() - btnSound->getWidth() * 1.1f, btnBack->getPositionY());
 
     
