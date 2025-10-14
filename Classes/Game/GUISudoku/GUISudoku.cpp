@@ -64,7 +64,7 @@ void GUISudoku::initGUI()
         btnSound->normalImage->setImage("btnSoundOff.png");
     }
 
-    btnSetting = addButton(BTN_SETTING_ID, "btnSoundOff.png");
+    btnSetting = addButton(BTN_SETTING_ID, "btnSetting.png");
     btnSetting->setPosition(btnSound->getPositionX() - btnSound->getWidth() * 1.1f, btnBack->getPositionY());
 
     
@@ -272,7 +272,7 @@ void GUISudoku::beginTutorial()
 
     if (!tutPointer_)
     {
-        tutPointer_ = Sprite::create("480_800/iconHand.png");
+        tutPointer_ = Sprite::create("480_800/iconHand1.png");
         if (!tutPointer_)
         {
             tutPointer_ = Sprite::create();
@@ -1272,7 +1272,7 @@ void GUISudoku::onFinishGame() {
 
 void GUISudoku::runFinishGrayOut(const std::function<void()>& onComplete)
 {
-    /*
+	std::vector<std::pair<int, int>> cells;
     // Collect positions of number labels that are currently visible
 	    cells.reserve(81);
     for (int r = 0; r < 9; ++r)
@@ -1345,7 +1345,7 @@ void GUISudoku::runWinSparkleThenResult(const std::function<void()>& onComplete)
     }
 
     // Sort visually top-left -> bottom-right
-    std::sort(cells.begin(), cells.end(), [](const auto& a, const auto& b) {
+    std::sort(cells.begin(), cells.end(), [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
         if (a.first != b.first) return a.first > b.first; // r=8 on top
         return a.second < b.second;
     });
@@ -1395,8 +1395,8 @@ void GUISudoku::runWinSparkleThenResult(const std::function<void()>& onComplete)
         );
         if (lbl) lbl->runAction(seq);
     }
-*/
-    float lastDelay = 2.0;
+
+    //float lastDelay = 2.0;
     runAction(Sequence::create(
         DelayTime::create(lastDelay + 0.2f),
         CallFunc::create([onComplete]() { if (onComplete) onComplete(); }),

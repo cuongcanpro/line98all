@@ -367,9 +367,9 @@ void GUIGame::onButtonRelease(int buttonID, CCTouch* touch)
 	case BTN_EXCHANGE_ID:
 	{
 		if (numExchange > 0) {
-			this->genNextEntity(true);
 			numExchange--;
 			lbExchange->setText(GameUtility::toString(numExchange));
+			this->genNextEntity(true);
 		}
 		break;
 	}

@@ -18,7 +18,7 @@ void GUIMenuSudoku::initGUI()
 	BaseGUI::initGUI();
 	Size size = Director::getInstance()->getOpenGLView()->getVisibleSize();
 
-	bg = Scale9Sprite::create("GuiGame/Bomb/common_panel_background.png");
+	bg = Scale9Sprite::create("480_800/Bomb/common_panel_background.png");
 	addChild(bg);
 	bg->setPosition(size.width * 0.5, size.height * 0.55);
 	bg->setContentSize(Size(size.width * 0.95, 400));

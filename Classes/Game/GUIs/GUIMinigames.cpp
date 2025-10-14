@@ -132,11 +132,11 @@ void GUIMinigames::callBackSplash()
 
     int numGame = 11;
 
-	btnBlock = addButton(BTN_GAME, "iconGameBlock.png", new BubbleBehavior(), NULL, false);
+	btnBlock = addButton(BTN_GAME, "logoGame.png", new BubbleBehavior(), NULL, false);
 	btnBlock->setPosition(size.width * 0.5, btnBack->getPositionY() - btnBlock->getHeight() * 0.5 - btnBack->getHeight() * 0.5);
 	//btnBlock->setVisible(false);
 
-	float padY = 240;
+	float padY = 200;
 	float heightBg = btnBlock->getPositionY() - btnBlock->getHeight() * 0.6 - size.height * 0.15;
     game->extendGame = false;
 	
@@ -148,7 +148,7 @@ void GUIMinigames::callBackSplash()
 	bgGame->setContentSize(Size(size.width * 0.98, heightBg));
 	bgGame->setOpacity(50);
 
-    int numRow = ceil(numGame * 1.0 / 2);
+    int numRow = ceil(numGame * 1.0 / 3);
 	scrollView = cocos2d::extension::ScrollView::create();
     scrollView->setTouchEnabled(true);
     scrollView->setDirection(cocos2d::extension::ScrollView::Direction::VERTICAL);
@@ -200,7 +200,8 @@ void GUIMinigames::callBackSplash()
 			game->arrayIdGame.insert(game->arrayIdGame.begin(), arrayGame1[i]);
 		}
 	}
-    
+	float wButton = 208;
+	float padX = (bgGame->getContentSize().width - 3 * wButton) / 4;
     for (int i = 0; i < numGame; i++) {
        // s = arrayResource[i];
 		int idGame = game->arrayIdGame.at(i);
@@ -212,9 +213,9 @@ void GUIMinigames::callBackSplash()
         scrollView->addChild(buttonGame);
         buttonGame->addTouchEventListener(this, toucheventselector(GUIMinigames::onTouchBegan));
         buttonGame->setSwallowTouches(false);
-		int row = numRow - 1 - floor(i / 2.0);
-		int column = i % 2;
-        buttonGame->setPosition(Vec2(scrollView->getContentSize().width * 0.5 + (buttonGame->getContentSize().width * 0.5 + 20) * (column == 1 ? 1 : -1), padY * (row + 0.5)));
+		int row = numRow - 1 - floor(i / 3.0);
+		int column = i % 3;
+		buttonGame->setPosition(Vec2(padX * (column + 1) + wButton * (column + 0.5), padY * (row + 0.5)));
         
         if (idGame == GAME_PIKA) {
 //            Sprite* iconHot = Sprite::create("IconGame/iconHot.png");
@@ -307,13 +308,13 @@ void GUIMinigames::showGUI(CCNode* parent /* = NULL */, bool hasFog /* = true */
 	moveVertical(btnSound->normalImage->_img, 0, 400, 0.1);
     moveVertical(btnBlock->normalImage->_img, 0, 400, 0.2);
 
+	float wButton = 133;
+	float padX = (bgGame->getContentSize().width - 3 * wButton) / 4;
 	for (int i = 0; i < arrayButtonGame.size(); i++) {
-		int column = i % 2;
-		arrayButtonGame.at(i)->setPositionX(
-			scrollView->getContentSize().width * 0.5 +
-			(arrayButtonGame.at(i)->getContentSize().width * 0.5 + 15) * (column == 1 ? 1 : -1)
-		);
-		moveHorizontal(arrayButtonGame.at(i), arrayButtonGame.at(i)->getPositionX(), i % 2 == 0 ? -400 : 400,
+		int column = i % 3;
+		float posX = padX * (column + 1) + wButton * (column + 0.5);
+		arrayButtonGame.at(i)->setPositionX(posX);
+		moveHorizontal(arrayButtonGame.at(i), arrayButtonGame.at(i)->getPositionX(), i % 3 == 0 ? -400 : 400,
 			0.1 + 0.05 * i);
 	}
     
