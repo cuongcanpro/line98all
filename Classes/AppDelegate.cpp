@@ -127,7 +127,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 		//pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionShowAll);
 	}
-    glview->setDesignResolutionSize(600, 800, ResolutionPolicy::SHOW_ALL);
+  //  glview->setDesignResolutionSize(600, 800, ResolutionPolicy::SHOW_ALL);
     // if the frame's height is larger than the height of medium size.
     //if (frameSize.height > mediumResolutionSize.height)
     //{        

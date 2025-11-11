@@ -513,7 +513,7 @@ void GameClient::initGame()
         GameUtility::callHttpRequest(s.c_str(), httpresponse_selector(HttpRequestHandler::onCompleteGetVersion), handler);
 	
 	
-	GUIManager::getInstance().showGui(&GUIManager::getInstance().guiLoadingGame);
+	GUIManager::getInstance().showGui(&GUIManager::getInstance().guiSudoku);
 
 //    //CCLog("CHECK INSTALL %i ", IOSConnection::checkInstallApp(urlCheck.c_str()));
 //    //GUIManager::getInstance().guiBoard.startOffline();

@@ -103,4 +103,44 @@ Grid Generator::makePuzzle(Difficulty d)
     return puzzle;
 }
 
+
+Grid Generator::makePuzzleLevel(int level)
+{
+	Grid full = makeFull();
+	// create a list of all positions and remove symmetrically while maintaining unique solution
+	std::vector<CellIndex> cells;
+	cells.reserve(81);
+	for (int r = 0; r < 9; ++r)
+		for (int c = 0; c < 9; ++c)
+			cells.push_back(CellIndex{ r, c });
+	std::shuffle(cells.begin(), cells.end(), rng());
+
+	Grid puzzle = full;
+	int toRemove = 0;
+	toRemove = 30 + level * 2;
+	for (auto& ci : cells)
+	{
+		if (toRemove <= 0)
+			break;
+		int r = ci.r, c = ci.c;
+		int r2 = 8 - r, c2 = 8 - c;  // symmetric pair
+		int old1 = puzzle[r][c];
+		int old2 = puzzle[r2][c2];
+		if (old1 == 0 && old2 == 0)
+			continue;
+		puzzle[r][c] = 0;
+		puzzle[r2][c2] = 0;
+		if (Solver::countSolutions(puzzle, 2) == 1)
+		{
+			toRemove -= (r == r2 && c == c2) ? 1 : 2;
+		}
+		else
+		{
+			puzzle[r][c] = old1;
+			puzzle[r2][c2] = old2;
+		}
+	}
+	return puzzle;
+}
+
 }  // namespace sudoku

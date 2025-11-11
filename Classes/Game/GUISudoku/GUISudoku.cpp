@@ -216,6 +216,10 @@ void GUISudoku::initGUI()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
     curDiff = (sudoku::Difficulty) UserDefault::getInstance()->getIntegerForKey("sudoku_diff", 1);
+
+	clock = new ClockCountDownLine();
+	addChild(clock);
+	clock->setPosition(timeLabel_->getPositionX() + 50, timeLabel_->getPositionY());
 }
 
 void GUISudoku::startTutorialIfFirstTime()
@@ -360,6 +364,31 @@ void GUISudoku::showGUI(Node* parent /* = NULL */, bool hasFog /* = true */)
 
     // Tutorial trigger for first-time users
     startTutorialIfFirstTime();
+}
+
+void GUISudoku::showGUIWithMode(TypeSudoku type)
+{
+	BaseGUI::showGUI(parent, hasFog);
+	// Nếu có save tạm, tiếp tục; không thì ván mới
+
+	if (type == NORMAL_SUDOKU) {
+		if (!loadFromPrefsIfAny())
+		{
+			newGame(curDiff);
+		}
+		else
+		{
+			animateInitialNumbers();
+		}
+		updateTimeLabels();
+
+		// Tutorial trigger for first-time users
+		startTutorialIfFirstTime();
+	}
+	else {
+
+	}
+	scheduleUpdate();
 }
 
 Vec2 GUISudoku::cellToPos(int r, int c, float cell, Vec2 origin)
@@ -685,6 +714,45 @@ void GUISudoku::newGame(sudoku::Difficulty d)
 
     // Restart tutorial on new game if still not completed
     startTutorialIfFirstTime();
+}
+
+
+void GUISudoku::newGameLevel()
+{
+	GameSound::playStartGame();
+	auto puz = sudoku::Generator::makePuzzleLevel(currentLevel);
+	board_.load(puz);
+	unSelect();
+	undoStack_.clear();
+	lives_ = 3;
+	updateHeartsUI();
+	statusLabel_->setString("OFF");
+	notesMode_ = false;
+	drawGrid();
+	saveToPrefs();
+	// Reset timer state
+	elapsedSeconds_ = 0.0f;
+	isSolved_ = false;
+	updateTimeLabels();
+	// Persist reset current time
+	animateInitialNumbers();
+	btnErase->normalImage->setImage("sudoku/btnErase.png");
+	for (int i = 0; i < 9; i++)
+	{
+		arrayBgSelect[i]->setVisible(false);
+	}
+	float y = btnNewGame->getPositionY();
+	for (int i = 0; i < 3; i++)
+	{
+		heartIcons_[i]->setPositionY(y);
+	}
+
+	timeLabel_->setString("Level: " + to_string(currentLevel));
+	clock->setVisible(true);
+	clock->setTime(30);
+	clock->setCallback([this]() {
+		CCLOG("END GAME");
+	});
 }
 
 void GUISudoku::onButtonRelease(int buttonID, Touch* touch)
