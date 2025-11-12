@@ -117,7 +117,7 @@ Grid Generator::makePuzzleLevel(int level)
 
 	Grid puzzle = full;
 	int toRemove = 0;
-	toRemove = 30 + level * 2;
+	toRemove = 5 + level * 2;
 	for (auto& ci : cells)
 	{
 		if (toRemove <= 0)

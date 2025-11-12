@@ -5,7 +5,7 @@
 #include "SudokuGenerator.h"
 #include <vector>
 #include "../GUIs/Entity/ClockCountDownLine.h"
-
+#include "Effekseer/Effekseer.h"
 enum TypeSudoku {
 	NORMAL_SUDOKU,
 	LEVEL_SUDOKU
@@ -121,7 +121,13 @@ private:
     Sprite* tutPointer_ = nullptr;
     LayerColor* tutHighlight_ = nullptr;
 
+	int bestLevel;
 	int currentLevel;
 	TypeSudoku typeGame;
+	Text* labelStateLevel;
+	void showString(string message);
+	efk::EffectManager* manager;
+	efk::EffectEmitter* emitter;
+	efk::EffectEmitter* hitEffect;
 };
 

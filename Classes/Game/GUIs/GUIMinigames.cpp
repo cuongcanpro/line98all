@@ -75,10 +75,10 @@ void GUIMinigames::initGUI(){
 void GUIMinigames::onBackKey(){
 	if (GUIManager::getInstance().isCallBackPress == false && GUIManager::getInstance().getLastGui() == this)
 	{
-		//GUIManager::getInstance().removeAllGui();
-		//GUIManager::getInstance().showGui(&GUIManager::getInstance().guiChoose);
+		GUIManager::getInstance().removeAllGui();
+		GUIManager::getInstance().showGui(&GUIManager::getInstance().guiTypeSudoku);
 		GUIManager::getInstance().isCallBackPress = true;
-        game->endGame();
+        //game->endGame();
 	}
 }
 
@@ -134,10 +134,11 @@ void GUIMinigames::callBackSplash()
 
 	btnBlock = addButton(BTN_GAME, "logoGame.png", new BubbleBehavior(), NULL, false);
 	btnBlock->setPosition(size.width * 0.5, btnBack->getPositionY() - btnBlock->getHeight() * 0.5 - btnBack->getHeight() * 0.5);
-	//btnBlock->setVisible(false);
+	btnBlock->setVisible(false);
 
 	float padY = 180;
 	float heightBg = btnBlock->getPositionY() - btnBlock->getHeight() * 0.6 - size.height * 0.15;
+	heightBg = btnBack->getPositionY() - btnBack->getHeight() * 1.6 - size.height * 0.15;
     game->extendGame = false;
 	
     numGame = 11;

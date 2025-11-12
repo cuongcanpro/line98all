@@ -238,6 +238,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Game\GUIManager.cpp" />
     <ClCompile Include="..\Classes\Game\GUISudoku\GUIMenuSudoku.cpp" />
     <ClCompile Include="..\Classes\Game\GUISudoku\GUISudoku.cpp" />
+    <ClCompile Include="..\Classes\Game\GUISudoku\GUITypeSudoku.cpp" />
     <ClCompile Include="..\Classes\Game\GUISudoku\SudokuBoard.cpp" />
     <ClCompile Include="..\Classes\Game\GUISudoku\SudokuGenerator.cpp" />
     <ClCompile Include="..\Classes\Game\GUISudoku\SudokuSolver.cpp" />
@@ -437,6 +438,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Game\GUIManager.h" />
     <ClInclude Include="..\Classes\Game\GUISudoku\GUIMenuSudoku.h" />
     <ClInclude Include="..\Classes\Game\GUISudoku\GUISudoku.h" />
+    <ClInclude Include="..\Classes\Game\GUISudoku\GUITypeSudoku.h" />
     <ClInclude Include="..\Classes\Game\GUISudoku\SudokuBoard.h" />
     <ClInclude Include="..\Classes\Game\GUISudoku\SudokuGenerator.h" />
     <ClInclude Include="..\Classes\Game\GUISudoku\SudokuSolver.h" />
