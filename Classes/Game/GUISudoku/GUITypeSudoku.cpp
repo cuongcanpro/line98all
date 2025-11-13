@@ -85,16 +85,8 @@ void GUITypeSudoku::callBackSplash()
         btnSound->normalImage->setImage("btnSoundOff.png", false);
 	}
 
-	btnGame = addButton(BTN_GAME_ID, "btnSoundOn.png", new BubbleBehavior(), NULL, false);
+	btnGame = addButton(BTN_GAME_ID, "logo.png", new BubbleBehavior(), NULL, false);
 	btnGame->setPosition(btnGame->getWidth() * 0.7f, btnBack->getPositionY());
-
-	auto *label = ui::Text::create(CCLocalizedString("CHOOSE_TYPE").c_str(), "fonts/tahomabd.ttf", 24);
-	label->setTextHorizontalAlignment(TextHAlignment::CENTER);
-    label->setPosition(Vec2(size.width * 0.5, size.height * 0.9));
-	//label->setWidth(size.width * 0.8);
-	//	label->setScale(0.8);
-	this->addChild(label);
-    label->setVisible(false);
 
     btnUpdate = addButton(BTN_UPDATE, "btnUpdate.png", new BubbleBehavior(), NULL, false);
     btnUpdate->setPosition(btnUpdate->getWidth() * 0.6, btnBack->getPositionY());
