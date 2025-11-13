@@ -2173,7 +2173,7 @@
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line9pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line98pro;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;
@@ -2241,7 +2241,7 @@
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line9pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line98pro;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;
