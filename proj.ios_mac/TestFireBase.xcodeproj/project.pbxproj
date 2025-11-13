@@ -80,6 +80,7 @@
 		32614DCE2DCF533A00B9A25E /* GUIPikachu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32614DCD2DCF533A00B9A25E /* GUIPikachu.cpp */; };
 		32614DD12DCF534400B9A25E /* BlockItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32614DD02DCF534400B9A25E /* BlockItem.cpp */; };
 		32ADF8042DD05CEE008FD631 /* CoreHaptics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ADF8032DD05CEE008FD631 /* CoreHaptics.framework */; };
+		32EB718D2EC62D8B006DB40C /* GUITypeSudoku.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32EB718C2EC62D8B006DB40C /* GUITypeSudoku.cpp */; };
 		32F4F39B2DF8672400EDAD22 /* TetrisSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F38C2DF8672400EDAD22 /* TetrisSquare.cpp */; };
 		32F4F39C2DF8672400EDAD22 /* TetrisBrickData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F3822DF8672400EDAD22 /* TetrisBrickData.cpp */; };
 		32F4F39D2DF8672400EDAD22 /* TetrisZLeftBrick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F3902DF8672400EDAD22 /* TetrisZLeftBrick.cpp */; };
@@ -418,6 +419,8 @@
 		32614DCF2DCF534400B9A25E /* BlockItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockItem.h; sourceTree = "<group>"; };
 		32614DD02DCF534400B9A25E /* BlockItem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockItem.cpp; sourceTree = "<group>"; };
 		32ADF8032DD05CEE008FD631 /* CoreHaptics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreHaptics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk/System/Library/Frameworks/CoreHaptics.framework; sourceTree = DEVELOPER_DIR; };
+		32EB718B2EC62D8B006DB40C /* GUITypeSudoku.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUITypeSudoku.h; sourceTree = "<group>"; };
+		32EB718C2EC62D8B006DB40C /* GUITypeSudoku.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GUITypeSudoku.cpp; sourceTree = "<group>"; };
 		32F4F37F2DF8672400EDAD22 /* TetrisBaseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TetrisBaseEntity.h; sourceTree = "<group>"; };
 		32F4F3802DF8672400EDAD22 /* TetrisBaseEntity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisBaseEntity.cpp; sourceTree = "<group>"; };
 		32F4F3812DF8672400EDAD22 /* TetrisBrickData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TetrisBrickData.h; sourceTree = "<group>"; };
@@ -984,6 +987,8 @@
 		320343692E9D5590006FB27A /* GUISudoku */ = {
 			isa = PBXGroup;
 			children = (
+				32EB718B2EC62D8B006DB40C /* GUITypeSudoku.h */,
+				32EB718C2EC62D8B006DB40C /* GUITypeSudoku.cpp */,
 				3203435E2E9D5590006FB27A /* GUIMenuSudoku.h */,
 				3203435F2E9D5590006FB27A /* GUIMenuSudoku.cpp */,
 				320343602E9D5590006FB27A /* GUISudoku.h */,
@@ -1959,6 +1964,7 @@
 				526F029B2C60DCE00014D469 /* GUIWaiting.cpp in Sources */,
 				525477CD29D52EEB00AA5FE2 /* CStringUtils.cpp in Sources */,
 				526F03052C60DD100014D469 /* RoomModel.cpp in Sources */,
+				32EB718D2EC62D8B006DB40C /* GUITypeSudoku.cpp in Sources */,
 				527754502A3F326A001DF9A1 /* Arrow.cpp in Sources */,
 				526F02B52C60DCE00014D469 /* GroupNewNumber.cpp in Sources */,
 				525477E529D52EEB00AA5FE2 /* GlobalData.cpp in Sources */,
@@ -2173,7 +2179,7 @@
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line98pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.sudoku;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;
@@ -2241,7 +2247,7 @@
 					"\"$(inherited) -lz -liconv\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.line98pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcsofts.sudoku;
 				PRODUCT_MODULE_NAME = TestFireBase_mobile;
 				PRODUCT_NAME = "TestFireBase-mobile";
 				SDKROOT = iphoneos;

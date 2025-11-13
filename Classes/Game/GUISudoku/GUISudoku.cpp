@@ -1615,7 +1615,7 @@ void GUISudoku::onBackKey()
     if (GUIManager::getInstance().isCallBackPress == false && GUIManager::getInstance().getLastGui() == this)
     {
         GUIManager::getInstance().removeAllGui();
-        GUIManager::getInstance().showGui(&GUIManager::getInstance().guiMinigames);
+        GUIManager::getInstance().showGui(&GUIManager::getInstance().guiTypeSudoku);
         GUIManager::getInstance().isCallBackPress = true;
         game->showAdsFull();
     }
