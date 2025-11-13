@@ -18,6 +18,7 @@ class Generator
 public:
     static Grid makeFull();                                     // filled valid board
     static Grid makePuzzle(Difficulty d = Difficulty::MEDIUM);  // unique-solution puzzle
+	static Grid makePuzzleLevel(int level);  // unique-solution puzzle
 private:
     static int removalsFor(Difficulty d);
 };

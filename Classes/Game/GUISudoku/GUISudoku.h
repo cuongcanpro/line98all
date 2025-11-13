@@ -4,6 +4,12 @@
 #include "SudokuBoard.h"
 #include "SudokuGenerator.h"
 #include <vector>
+#include "../GUIs/Entity/ClockCountDownLine.h"
+#include "Effekseer/Effekseer.h"
+enum TypeSudoku {
+	NORMAL_SUDOKU,
+	LEVEL_SUDOKU
+};
 
 class GUISudoku : public BaseGUI
 {
@@ -15,13 +21,16 @@ public:
     void update(float dt) override;
     void newGame();
     void newGame(sudoku::Difficulty d);
+	void newGameLevel();
     void onBackKey();
     void onButtonRelease(int buttonID, Touch* touch);
     sudoku::Difficulty curDiff;
     void showGUI(Node* parent /* = NULL */, bool hasFog /* = true */);
+	void showGUIWithMode(TypeSudoku type);
     void onHint();
 
 private:
+	ClockCountDownLine* clock;
     BaseButton *btnBack, *btnSound, *btnSetting;
     sudoku::Board board_;
     bool notesMode_             = false;
@@ -111,5 +120,14 @@ private:
     int tutTargetR_ = -1, tutTargetC_ = -1, tutTargetVal_ = 0;
     Sprite* tutPointer_ = nullptr;
     LayerColor* tutHighlight_ = nullptr;
+
+	int bestLevel;
+	int currentLevel;
+	TypeSudoku typeGame;
+	Text* labelStateLevel;
+	void showString(string message);
+	efk::EffectManager* manager;
+	efk::EffectEmitter* emitter;
+	efk::EffectEmitter* hitEffect;
 };
 

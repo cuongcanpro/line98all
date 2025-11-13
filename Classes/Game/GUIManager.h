@@ -32,6 +32,7 @@
 
 #include "GUISudoku/GUIMenuSudoku.h"
 #include "GUISudoku/GUISudoku.h"
+#include "GUISudoku/GUITypeSudoku.h"
 #include "GUI2048/GUI2048.h"
 
 using namespace std;
@@ -77,6 +78,7 @@ public:
 	GUIMenuSudoku guiMenuSudoku;
 	GUISudoku guiSudoku;
 	GUI2048 gui2048;
+	GUITypeSudoku guiTypeSudoku;
 
 	/*guidialog guidialog;
     guiline guiline;

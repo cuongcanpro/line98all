@@ -612,6 +612,9 @@
     <ClCompile Include="..\Classes\Game\GUI2048\GUI2048.cpp">
       <Filter>src\Game\GUI2048</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\GUISudoku\GUITypeSudoku.cpp">
+      <Filter>src\Game\GUISudoku</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1231,6 +1234,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\GUI2048\GUI2048.h">
       <Filter>src\Game\GUI2048</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GUISudoku\GUITypeSudoku.h">
+      <Filter>src\Game\GUISudoku</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
