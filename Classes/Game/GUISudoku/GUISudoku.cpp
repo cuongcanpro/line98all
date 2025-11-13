@@ -432,6 +432,7 @@ void GUISudoku::showGUIWithMode(TypeSudoku type)
 		startTutorialIfFirstTime();
 	}
 	else {
+        endTutorial();
 		newGameLevel();
 	}
 	typeGame = type;
