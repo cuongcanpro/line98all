@@ -1018,7 +1018,7 @@ void GUISudoku::loseLife()
     {
         UserDefault::getInstance()->setStringForKey(kSudokuSaveKey, "");
 		if (typeGame == LEVEL_SUDOKU)
-			UserDefault::getInstance()->setIntegerForKey(kSudokuCurentLevel, 0);
+			UserDefault::getInstance()->setIntegerForKey(kSudokuCurentLevel, 1);
 		UserDefault::getInstance()->flush();
         GameSound::playLose();
         // Gray out visible cells sequentially, then show game over dialog
@@ -1460,10 +1460,16 @@ void okNewGameSudoku() {
 
 void GUISudoku::showGameOverDialog()
 {
-	currentLevel = 0;
+	//
     game->showAdsFull();
-    // Pause the game timer
-    GUIManager::getInstance().guiDialog.showGUI("GameOver. Please start a new game?", okNewGameSudoku, true);
+    if (typeGame == NORMAL_SUDOKU) {
+        // Pause the game timer
+        GUIManager::getInstance().guiDialog.showGUI("GameOver. Please start a new game?", okNewGameSudoku, true);
+    }
+    else {
+        GUIManager::getInstance().guiResult.showGUI(currentLevel, bestLevel);
+    }
+    currentLevel = 1;
 }
 
 void GUISudoku::onContinueGame()

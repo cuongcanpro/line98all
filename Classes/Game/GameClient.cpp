@@ -167,6 +167,9 @@ void GameClient::loadPreferences() {
     adBannerUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adBannerUnit", "ca-app-pub-7169368956692170/5524463808");
     adInterUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adInterUnit", "ca-app-pub-7169368956692170/5053690514");
     adRewardUnit = CCUserDefault::sharedUserDefault()->getStringForKey("adRewardUnit", "ca-app-pub-7169368956692170/4213212447");
+   // adBannerUnit = "ca-app-pub-3940256099942544/2934735716";
+   // adInterUnit = "ca-app-pub-3940256099942544/4411468910";
+    //adRewardUnit = "ca-app-pub-3940256099942544/1712485313";
 //	idAdsBanner = 1;
 	//idAdsFull = idAdsBanner;
 	saveScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("saveScore", 0);
