@@ -89,7 +89,7 @@ void GUITypeSudoku::callBackSplash()
 	btnGame->setPosition(btnGame->getWidth() * 0.7f, btnBack->getPositionY());
 
     btnUpdate = addButton(BTN_UPDATE, "btnUpdate.png", new BubbleBehavior(), NULL, false);
-    btnUpdate->setPosition(btnUpdate->getWidth() * 0.6, btnBack->getPositionY());
+    btnUpdate->setPosition(btnUpdate->getWidth() * 0.6, btnBack->getPositionY() - 100);
     btnUpdate->setVisible(false);
 
 	btnNormal = addButton(BTN_NORMAL_ID, "sudoku/btnNormal.png", new BubbleBehavior(), NULL, false);
@@ -187,6 +187,7 @@ void GUITypeSudoku::showGUI(Node* parent /* = NULL */, bool hasFog /* = true */)
 
 	moveVertical(btnBack->normalImage->_img, 0, 400, 0);
 	moveVertical(btnSound->normalImage->_img, 0, 400, 0.1);
+	moveVertical(btnGame->normalImage->_img, 0, 400, 0);
 
     moveVertical(btnUpdate->normalImage->_img, 0, 400, 0.1);
 

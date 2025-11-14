@@ -28,7 +28,7 @@ public:
     void showGUI(Node* parent /* = NULL */, bool hasFog /* = true */);
 	void showGUIWithMode(TypeSudoku type);
     void onHint();
-
+	TypeSudoku typeGame;
 private:
 	ClockCountDownLine* clock;
     BaseButton *btnBack, *btnSound, *btnSetting;
@@ -93,6 +93,7 @@ private:
     void showConflicts(int r, int c, int v);
     void saveToPrefs();
     bool loadFromPrefsIfAny();
+	bool loadFromPrefsIfAnyLevel();
     std::string serializeBoard() const;
     bool deserializeBoard(const std::string& data);
     void updateTimeLabels();
@@ -123,7 +124,7 @@ private:
 
 	int bestLevel;
 	int currentLevel;
-	TypeSudoku typeGame;
+	
 	Text* labelStateLevel;
 	void showString(string message);
 	efk::EffectManager* manager;

@@ -23,6 +23,10 @@
 static const char* kSudokuSaveKey  = "sudoku_save_pref";
 static const char* kSudokuHeartKey = "sudoku_heart_pref";
 static const char* kSudokuBestLevel = "sudoku_best_level_pref";
+
+static const char* kSudokuSaveKeyLevel = "sudoku_level_save_pref";
+static const char* kSudokuHeartKeyLevel = "sudoku_level_heart_pref";
+static const char* kSudokuCurentLevel = "sudoku_current_level_pref";
 GUISudoku::GUISudoku(void) : BaseGUI()
 {
 	BaseGUI();
@@ -221,7 +225,20 @@ void GUISudoku::initGUI()
 	clock = new ClockCountDownLine();
 	addChild(clock);
 	clock->setLocalZOrder(100);
-	clock->setPosition(timeLabel_->getPositionX() + 100, timeLabel_->getPositionY());
+	clock->setPosition(timeLabel_->getPositionX() + 110, (timeLabel_->getPositionY() + bestTimeLabel_->getPositionY()) * 0.5);
+	clock->setCallback([this]() {
+		CCLOG("END GAME");
+		auto seq = Sequence::create(DelayTime::create(2.0),
+			CallFunc::create([this]() {
+			GUIManager::getInstance().guiResult.showGUI(currentLevel, bestLevel);
+		}),
+			nullptr);
+		runAction(seq);
+
+		emitter->setVisible(true);
+		emitter->play(0);
+	});
+	
 
 	manager = EffectManager::create(size);
 	Effect* effect = Effect::create("fire.efk", 60);
@@ -418,6 +435,7 @@ void GUISudoku::showGUIWithMode(TypeSudoku type)
 	GUIManager::getInstance().addToListGui(this);
 
 	if (type == NORMAL_SUDOKU) {
+		clock->setVisible(false);
 		if (!loadFromPrefsIfAny())
 		{
 			newGame(curDiff);
@@ -430,10 +448,24 @@ void GUISudoku::showGUIWithMode(TypeSudoku type)
 
 		// Tutorial trigger for first-time users
 		startTutorialIfFirstTime();
+		btnSetting->setVisible(true);
 	}
 	else {
         endTutorial();
-		newGameLevel();
+		currentLevel = 1;
+		if (!loadFromPrefsIfAnyLevel())
+		{
+			newGameLevel();
+		}
+		else
+		{
+			animateInitialNumbers();
+		}
+		clock->onEnterFinish();
+		btnSetting->setVisible(false);
+		auto ud = UserDefault::getInstance();
+		bestLevel = ud->getIntegerForKey(kSudokuBestLevel, 1);
+		bestTimeLabel_->setString("Best: " + to_string(bestLevel));
 	}
 	typeGame = type;
 	scheduleUpdate();
@@ -550,6 +582,11 @@ void GUISudoku::redrawNumbers()
 
 void GUISudoku::setSelected(int r, int c)
 {
+	if (typeGame == LEVEL_SUDOKU) {
+		if (clock->isPause()) {
+			clock->setPause(false);
+		}
+	}
     selR_ = r;
     selC_ = c;
     highlightRelatedCells(r, c);
@@ -802,21 +839,11 @@ void GUISudoku::newGameLevel()
 	timeLabel_->setString("Level: " + to_string(currentLevel));
 	clock->setVisible(true);
 	clock->setTime(20);
-	clock->setCallback([this]() {
-		CCLOG("END GAME");
-		auto seq = Sequence::create(DelayTime::create(2.0),
-			CallFunc::create([this]() {
-			GUIManager::getInstance().guiResult.showGUI(currentLevel, bestLevel);
-		}),
-			nullptr);
-		runAction(seq);
-		
-		emitter->setVisible(true);
-		emitter->play(0);
-	});
-	auto ud = UserDefault::getInstance();
-	bestLevel = ud->getIntegerForKey(kSudokuBestLevel, 0);
-	bestTimeLabel_->setString("Best: " + to_string(bestLevel));
+	sudoku::SudokuLevelConfig config = sudoku::Generator::getSudokuConfig(currentLevel);
+	clock->setTime(config.timeLimitSec);
+	
+	clock->setPause(true);
+	
 
 	showString("LEVEL " + to_string(currentLevel));
 }
@@ -983,6 +1010,9 @@ void GUISudoku::loseLife()
     if (lives_ <= 0)
     {
         UserDefault::getInstance()->setStringForKey(kSudokuSaveKey, "");
+		if (typeGame == LEVEL_SUDOKU)
+			UserDefault::getInstance()->setIntegerForKey(kSudokuCurentLevel, 0);
+		UserDefault::getInstance()->flush();
         GameSound::playLose();
         // Gray out visible cells sequentially, then show game over dialog
         runFinishGrayOut([this]() {
@@ -1119,11 +1149,21 @@ bool GUISudoku::deserializeBoard(const std::string& data)
 void GUISudoku::saveToPrefs()
 {
 	if (typeGame == LEVEL_SUDOKU)
-		return;
-    auto ud = UserDefault::getInstance();
-    ud->setStringForKey(kSudokuSaveKey, serializeBoard());
-    ud->setIntegerForKey(kSudokuHeartKey, lives_);
-    ud->flush();
+	{
+		auto ud = UserDefault::getInstance();
+		ud->setStringForKey(kSudokuSaveKeyLevel, serializeBoard());
+		ud->setIntegerForKey(kSudokuHeartKeyLevel, lives_);
+		ud->setIntegerForKey(kSudokuCurentLevel, currentLevel);
+		ud->flush();
+	}
+	else
+	{
+		auto ud = UserDefault::getInstance();
+		ud->setStringForKey(kSudokuSaveKey, serializeBoard());
+		ud->setIntegerForKey(kSudokuHeartKey, lives_);
+		ud->flush();
+	}
+    
 }
 
 bool GUISudoku::loadFromPrefsIfAny()
@@ -1148,6 +1188,29 @@ bool GUISudoku::loadFromPrefsIfAny()
         UserDefault::getInstance()->getIntegerForKey(("sudoku_best_time_" + to_string((int)(curDiff))).c_str(), -1);
     updateTimeLabels();
     return true;
+}
+
+bool GUISudoku::loadFromPrefsIfAnyLevel()
+{
+	auto ud = UserDefault::getInstance();
+	currentLevel = (ud->getIntegerForKey(kSudokuCurentLevel, 1));
+	timeLabel_->setString("Level: " + to_string(currentLevel));
+	std::string s = string(ud->getStringForKey(kSudokuSaveKeyLevel, ""));
+	if (!deserializeBoard(s))
+		return false;
+	unSelect();
+	undoStack_.clear();
+	lives_ = ud->getIntegerForKey(kSudokuHeartKeyLevel, 3);
+	updateHeartsUI();
+	notesMode_ = false;
+	statusLabel_->setString("OFF");
+	drawGrid();
+	// Restore current elapsed time and best
+	float remainTime = (float)ud->getIntegerForKey("sudoku_remain_time", 0);
+	clock->setTime(remainTime);
+	isSolved_ = false;
+	
+	return true;
 }
 
 void GUISudoku::onUndo()
@@ -1270,6 +1333,12 @@ void GUISudoku::update(float dt)
             ud->setIntegerForKey("sudoku_current_time", (int)elapsedSeconds_);
             ud->flush();
         }
+
+		if (typeGame == LEVEL_SUDOKU) {
+			auto ud = UserDefault::getInstance();
+			ud->setIntegerForKey("sudoku_remain_time", (int)clock->getTime());
+			ud->flush();
+		}
     }
 	manager->update(dt);
 }
@@ -1376,11 +1445,15 @@ void GUISudoku::animateInitialNumbers()
 }
 
 void okNewGameSudoku() {
-    GUIManager::getInstance().guiSudoku.newGame();
+	if (GUIManager::getInstance().guiSudoku.typeGame == NORMAL_SUDOKU)
+		GUIManager::getInstance().guiSudoku.newGame();
+	else
+		GUIManager::getInstance().guiSudoku.newGameLevel();
 }
 
 void GUISudoku::showGameOverDialog()
 {
+	currentLevel = 0;
     game->showAdsFull();
     // Pause the game timer
     GUIManager::getInstance().guiDialog.showGUI("GameOver. Please start a new game?", okNewGameSudoku, true);
@@ -1404,6 +1477,16 @@ void GUISudoku::onFinishGame() {
 	}
 	else {
 		showString("COMPLETE LEVEL");
+		auto ud = UserDefault::getInstance();
+		ud->setStringForKey(kSudokuSaveKeyLevel, "");
+		currentLevel++;
+		ud->setIntegerForKey(kSudokuCurentLevel, currentLevel);
+		if (currentLevel > bestLevel) {
+			bestLevel = currentLevel;
+			ud->setIntegerForKey(kSudokuBestLevel, bestLevel);
+			bestTimeLabel_->setString("Best: " + to_string(currentLevel));
+		}
+		ud->flush();
 	}
     
     int cur = (int)elapsedSeconds_;
@@ -1414,13 +1497,6 @@ void GUISudoku::onFinishGame() {
 			GUIManager::getInstance().guiResult.showGUI(cur, bestSeconds_, true);
 		else
 		{
-			currentLevel++;
-			if (currentLevel > bestLevel) {
-				bestLevel = currentLevel;
-				auto ud = UserDefault::getInstance();
-				ud->setIntegerForKey(kSudokuBestLevel, bestLevel);
-				ud->flush();
-			}
 			newGameLevel();
 		}
     });
