@@ -150,8 +150,8 @@ SudokuLevelConfig Generator::getSudokuConfig(int L) {
 	const int BLANK_MIN = 20;
 	const int BLANK_MAX = 50;
 	const int BASE_TIME = 60;
-	const double T_PER_BLANK_MIN = 10.0;
-	const double T_PER_BLANK_MAX = 25.0;
+	const double T_PER_BLANK_MIN = 8.0;
+	const double T_PER_BLANK_MAX = 20.0;
 
 	if (L < 1) L = 1;
 

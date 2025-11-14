@@ -331,13 +331,6 @@ void GUI2048::updateVisuals()
     }
 }
 
-void GUI2048::endGame()
-{
-    // Play pre-result effect: sequential gray-out of tiles, then show result
-    runGameOverGrayOut([this]() {
-        GUIManager::getInstance().guiResult.showGUI(_score, _bestScore);
-    });
-}
 
 // ---------------- Game lifecycle ----------------
 
@@ -1255,4 +1248,14 @@ void GUI2048::onBackKey()
         GUIManager::getInstance().isCallBackPress = true;
         game->showAdsFull();
     }
+}
+
+void GUI2048::endGame()
+{
+    UserDefault::getInstance()->setStringForKey(K_BOARD, "");
+    UserDefault::getInstance()->flush();
+    // Play pre-result effect: sequential gray-out of tiles, then show result
+    runGameOverGrayOut([this]() {
+        GUIManager::getInstance().guiResult.showGUI(_score, _bestScore);
+    });
 }

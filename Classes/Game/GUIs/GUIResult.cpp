@@ -130,7 +130,12 @@ void GUIResult::hideGUI()
 		GUIManager::getInstance().guiPop.newGame();
     else if (GUIManager::getInstance().guiPikachu.isInitted() && GUIManager::getInstance().guiPikachu.isVisible())
         GUIManager::getInstance().guiPikachu.makeNewLevel();
-	
+    else if (GUIManager::getInstance().guiSudoku.isInitted() && GUIManager::getInstance().guiSudoku.isVisible())
+        GUIManager::getInstance().guiSudoku.onNewGame();
+    else if (GUIManager::getInstance().guiBomb.isInitted() && GUIManager::getInstance().guiBomb.isVisible())
+        GUIManager::getInstance().guiBomb.newGame();
+    else if (GUIManager::getInstance().gui2048.isInitted() && GUIManager::getInstance().gui2048.isVisible())
+        GUIManager::getInstance().gui2048.newGame();
 }
 
 void GUIResult::showGUI(int score, int highscore, bool isTime)

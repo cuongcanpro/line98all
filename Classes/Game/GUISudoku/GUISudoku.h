@@ -29,6 +29,7 @@ public:
 	void showGUIWithMode(TypeSudoku type);
     void onHint();
 	TypeSudoku typeGame;
+    void onNewGame();
 private:
 	ClockCountDownLine* clock;
     BaseButton *btnBack, *btnSound, *btnSetting;
@@ -79,7 +80,7 @@ private:
     void onToggleNotes();
     void onUndo();
     
-    void onNewGame();
+   
     void onSaveGame();
     void onLoadGame();
     Vec2 cellToPos(int r, int c, float cellSize, Vec2 origin);

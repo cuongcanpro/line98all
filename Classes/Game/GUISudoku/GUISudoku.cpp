@@ -451,6 +451,7 @@ void GUISudoku::showGUIWithMode(TypeSudoku type)
 		btnSetting->setVisible(true);
 	}
 	else {
+        clock->setVisible(true);
         endTutorial();
 		currentLevel = 1;
 		if (!loadFromPrefsIfAnyLevel())
@@ -953,8 +954,14 @@ void GUISudoku::onHint()
 
 void GUISudoku::onNewGame()
 {
-    // Start a new game with medium difficulty
-    newGame(curDiff);
+    if (typeGame == NORMAL_SUDOKU) {
+        // Start a new game with medium difficulty
+        newGame(curDiff);
+    }
+    else {
+        currentLevel = 1;
+        newGameLevel();
+    }
 }
 
 void GUISudoku::initHeartsUI()
