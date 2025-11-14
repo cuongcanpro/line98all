@@ -9,35 +9,25 @@ using namespace std::chrono;
 
 ClockCountDownLine::ClockCountDownLine(void)
 {
-	Sprite* bgClock = Sprite::create("480_800/bgClock.png");
+	bgClock = Sprite::create("480_800/clock.png");
 	addChild(bgClock);
-//	CCSize size = CCDirector::sharedDirector()->getWinSize();
-
-	/*arrayImage[0] = Sprite::create(getResource(0));
-	addChild(arrayImage[0]);
-	arrayImage[0]->setPositionX(-arrayImage[0]->getContentSize().width * 0.52);
-
-	arrayImage[1] = Sprite::create(getResource(0));
-	addChild(arrayImage[1]);
-	arrayImage[1]->setPositionX(arrayImage[1]->getContentSize().width * 0.52);*/
-
-	//arrayImage[0]->setPosition(size.width / 2, size.height / 2);
-	//arrayImage[1]->setPosition(size.width / 2, size.height / 2);
 
 	setVisible(true);
 	pause = false;
-	//setContentSize(CCSize(arrayImage[0]->getContentSize().width * 2.2f, arrayImage[0]->getContentSize().height));
 	playTime = false;
-	schedule(schedule_selector(ClockCountDownLine::update), 1);
+	//	schedule(schedule_selector(ClockCountDownLine::update), 1);
 	callback = nullptr;
 
-	lbTime = Text::create("0", "fonts/tahomabd.ttf", 18);
+	lbTime = Text::create("0", "fonts/tahomabd.ttf", 25);
+	lbTime->setColor(Color3B(240, 129, 130));
 	lbTime->setAnchorPoint(Vec2(0.5, 0.5));
-	lbTime->enableOutline(ccc4(20, 20, 20, 255), 1);
+	lbTime->enableOutline(Color4B(20, 20, 20, 255), 1);
 	lbTime->setTextHorizontalAlignment(TextHAlignment::CENTER);
-	addChild(lbTime);
-	lbTime->setPositionY(5);
+	bgClock->addChild(lbTime);
+	lbTime->setPosition(Vec2(bgClock->getContentSize().width * 0.5, bgClock->getContentSize().height * 0.45));
 	//lbTime->setPosition(Vec2(bgProgress->getRealWidth() * 0.4, 0));
+
+
 }
 
 ClockCountDownLine::~ClockCountDownLine(void)
@@ -46,12 +36,22 @@ ClockCountDownLine::~ClockCountDownLine(void)
 
 void ClockCountDownLine::onEnterFinish()
 {
-	schedule(schedule_selector(ClockCountDownLine::update), 1);
+	this->schedule(
+		[this](float dt) {
+		// Add your task logic here
+		this->update(dt);
+	},
+		1.0f, "one_time_task_key");
 }
 
 void ClockCountDownLine::setPlayTime(bool play)
 {
 	playTime = play;
+}
+
+Size ClockCountDownLine::getContentSize()
+{
+	return bgClock->getContentSize();
 }
 
 
@@ -67,30 +67,45 @@ void ClockCountDownLine::callbackTimeOut()
 	}
 }
 
-std::string ClockCountDownLine::getResource(int number)
+bool ClockCountDownLine::isPause()
 {
-	std::string content = "poker/start_";
-	content = content + std::to_string(number);
-	content = content + ".png";
-	return content;
+	return pause;
 }
 
 void ClockCountDownLine::update(float delta)
 {
-	if (!isVisible())
-		return;
-	if(!pause) {
+	/*if (!isVisible())
+		return;*/
+	if (!pause) {
 		milliseconds ms = duration_cast<milliseconds>(
 			system_clock::now().time_since_epoch()
 			);
-		int remainTime = round((targetTime - ms.count()) / 1000);
-		if(remainTime >= 0) {
+		targetTime = targetTime - delta;
+		int remainTime = targetTime;
+		//round((targetTime - ms.count()) / 1000);
+		if (remainTime >= 0) {
 			convertTime(remainTime);
-			if(remainTime < 10) {
+			if (remainTime < 10) {
 				//GameSound::playSoundCountDown();
 				if (!arrayCountDown[remainTime]) {
 					GameSound::playCountDown();
 					arrayCountDown[remainTime] = true;
+					bgClock->runAction(
+						Spawn::create(
+							Sequence::create(
+								MoveTo::create(0.2, Vec2(0, 50)),
+								EaseBounceOut::create(MoveTo::create(0.5, Vec2(0, 0))),
+								NULL
+							),
+							Sequence::create(
+								ScaleTo::create(0.2, 1, 1.2),
+								ScaleTo::create(0.2, 1, 0.6),
+								EaseBounceOut::create(ScaleTo::create(0.5, 1, 1)),
+								NULL
+							),
+							NULL
+						)
+					);
 				}
 			}
 		}
@@ -103,7 +118,7 @@ void ClockCountDownLine::update(float delta)
 
 void ClockCountDownLine::setPause(bool value)
 {
-	setVisible(!value);
+	//setVisible(!value);
 	pause = value;
 }
 
@@ -113,8 +128,9 @@ void ClockCountDownLine::setTime(int time)
 		system_clock::now().time_since_epoch()
 		);
 	CCLOG("SET TIME %i ", time);
-	targetTime = time * 1000 + ms.count();
-	schedule(schedule_selector(ClockCountDownLine::update),1);
+	targetTime = time;
+	//targetTime = time * 1000 + ms.count();
+	//schedule(schedule_selector(ClockCountDownLine::update),1);
 	convertTime(time);
 	setPause(false);
 	for (int i = 0; i < 10; i++) {
@@ -124,13 +140,14 @@ void ClockCountDownLine::setTime(int time)
 
 float ClockCountDownLine::getTime()
 {
-	if (pause)
-		return -1;
-	milliseconds ms = duration_cast<milliseconds>(
+	//if (pause)
+		//return -1;
+	return targetTime;
+	/*milliseconds ms = duration_cast<milliseconds>(
 		system_clock::now().time_since_epoch()
 		);
 	float remainTime = round((targetTime - ms.count()) / 1000.0f);
-	return remainTime;
+	return remainTime;*/
 }
 
 void ClockCountDownLine::convertTime(int convertTime)
@@ -138,11 +155,17 @@ void ClockCountDownLine::convertTime(int convertTime)
 	if (convertTime < 0)
 		convertTime = 0;
 	lbTime->setString(GameUtility::toString(convertTime));
-	lbTime->runAction(CCSequence::create(
-		CCScaleTo::create(0.2, 1.2),
-		CCEaseBounceOut::create(CCScaleTo::create(0.5, 1.0)),
+	lbTime->runAction(Sequence::create(
+		ScaleTo::create(0.2, 1.2),
+		EaseBounceOut::create(ScaleTo::create(0.5, 1.0)),
 		NULL
 	));
+}
+
+
+std::string ClockCountDownLine::getResource(int number)
+{
+	return "";
 }
 
 ClockGameLine::ClockGameLine() : ClockCountDownLine()

@@ -93,7 +93,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 		//glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 562, 1000));
 		//glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 460, 1000));
-		glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 240, 320));
+		glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 240, 420));
         //glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 480, 800));
 		//glview = GLViewImpl::createWithRect("Test", cocos2d::Rect(0, 0, 800, 1200));
 		auto window = static_cast<GLViewImpl*>(glview)->getWindow();

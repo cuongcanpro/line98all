@@ -13,12 +13,21 @@ enum class Difficulty
     EXPERT
 };
 
+struct SudokuLevelConfig {
+	int level;
+	double difficultyNorm;
+	int blankCells;
+	int timeLimitSec;
+};
+
 class Generator
 {
 public:
     static Grid makeFull();                                     // filled valid board
     static Grid makePuzzle(Difficulty d = Difficulty::MEDIUM);  // unique-solution puzzle
 	static Grid makePuzzleLevel(int level);  // unique-solution puzzle
+
+	static SudokuLevelConfig getSudokuConfig(int L);   // unique-solution puzzle
 private:
     static int removalsFor(Difficulty d);
 };

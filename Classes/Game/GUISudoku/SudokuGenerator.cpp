@@ -118,6 +118,8 @@ Grid Generator::makePuzzleLevel(int level)
 	Grid puzzle = full;
 	int toRemove = 0;
 	toRemove = 5 + level * 2;
+	SudokuLevelConfig config = getSudokuConfig(level);
+	toRemove = config.blankCells;
 	for (auto& ci : cells)
 	{
 		if (toRemove <= 0)
@@ -142,5 +144,43 @@ Grid Generator::makePuzzleLevel(int level)
 	}
 	return puzzle;
 }
+SudokuLevelConfig Generator::getSudokuConfig(int L) {
+	const int N = 20;
+	const double alpha = 1.3;
+	const int BLANK_MIN = 20;
+	const int BLANK_MAX = 50;
+	const int BASE_TIME = 60;
+	const double T_PER_BLANK_MIN = 10.0;
+	const double T_PER_BLANK_MAX = 25.0;
 
+	if (L < 1) L = 1;
+
+	double d;
+	if (L <= N) {
+		d = (double)(L - 1) / (double)(N - 1);  // 0..1
+	}
+	else {
+		d = 1.0;
+	}
+
+	double d_eff = (L == 1 ? 0.0 : pow(d, alpha));
+
+	int blankCells = (int)std::round(
+		BLANK_MIN + (BLANK_MAX - BLANK_MIN) * d_eff
+	);
+
+	double timePerBlank = T_PER_BLANK_MIN
+		+ (T_PER_BLANK_MAX - T_PER_BLANK_MIN) * d_eff;
+
+	int timeLimitSec = (int)std::round(
+		BASE_TIME + blankCells * timePerBlank
+	);
+
+	SudokuLevelConfig cfg;
+	cfg.level = L;
+	cfg.difficultyNorm = d_eff;
+	cfg.blankCells = blankCells;
+	cfg.timeLimitSec = timeLimitSec;
+	return cfg;
+}
 }  // namespace sudoku

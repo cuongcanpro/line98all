@@ -14,6 +14,7 @@ public:
 	void onEnterFinish();
 	void update(float delta);
 	void setPause(bool value);
+	bool isPause();
 	void setTime(int time);
 	float getTime();
 	void convertTime(int time);
@@ -22,7 +23,9 @@ public:
 	virtual void callbackTimeOut();
 	virtual std::string getResource(int number);
 	ClockListener callback;
+	Size getContentSize();
 protected:
+	Sprite* bgClock;
 	Sprite *arrayImage[2];
 	Text* lbTime;
 	int standardTime;
